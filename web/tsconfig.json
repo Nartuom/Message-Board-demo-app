@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.root.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "jsx": "react"
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts", "test/**/*.tsx"]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "message-board-demo-app",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "engines": {
+    "node": "20",
+    "yarn": "^4.3.1"
+  },
+  "scripts": {
+    "test": "jest",
+    "start": "concurrently 'yarn start:web' 'yarn start:server'",
+    "start:web": "docker-compose up -d && yarn workspace web start",
+    "start:server": "docker-compose up -d && yarn workspace server start",
+    "compile": "yarn workspace server compile && yarn workspace web compile"
+  },
+  "devDependencies": {
+    "@types/jest": "27.5.1",
+    "autoprefixer": "^10.4.22",
+    "concurrently": "7.2.1",
+    "jest": "27.5.1",
+    "postcss": "^8.5.6",
+    "prettier": "^3.3.2",
+    "process": "^0.11.10",
+    "ts-jest": "27.1.5",
+    "typescript": "^4.2.4",
+    "vite": "^7.2.7"
+  },
+  "packageManager": "yarn@4.3.1",
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}

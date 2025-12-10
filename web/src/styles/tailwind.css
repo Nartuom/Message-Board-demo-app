@@ -1,0 +1,256 @@
+@import "./tailwind";
+
+:root {
+  --color-text-600: hsl(253, 2%, 5%); /* headings */
+  --color-text-500: hsl(253, 2%, 20%); /* body / icons / currently active tab */
+  --color-text-400: hsl(253, 2%, 40%); /* labels / table header text / unselected tab */
+  --color-text-300: hsl(253, 2%, 62%); /* placeholders */
+  --color-text-200: hsl(253, 2%, 81%); /* inactive state text */
+  --color-text-100: hsl(253, 100%, 100%); /* inverted body (on dark background) */
+  --color-primary-500: hsl(253, 51%, 31%); /* hover state for primary button */
+  --color-primary-400: hsl(253, 51%, 51%); /* primary buttons, default primary colour */
+  --color-primary-300: hsl(253, 51%, 66%);
+  --color-primary-200: hsl(253, 51%, 76%); /* chart accent / light variant */
+  --color-primary-100: hsl(253, 51%, 91%); /* background, */
+  --color-primary-50: hsla(254, 52%, 95%, 1);
+  --color-secondary-500: hsl(20, 84%, 35%); /* darkest (for text on a background) */
+  --color-secondary-400: hsl(20, 84%, 55%); /* chart colour */
+  --color-secondary-300: hsl(20, 73%, 74%); /* chart accent / light variant */
+  --color-secondary-100: hsl(20, 84%, 94%); /* background */
+  --color-gray-900: hsl(244, 18%, 13%); /* header/nav background */
+  --color-gray-800: hsl(244, 18%, 22%); /* nav hover state */
+  --color-gray-700: hsl(244, 18%, 31%); /* borders for element on dark */
+  --color-gray-500: hsl(253, 5%, 85%); /* table heading border */
+  --color-gray-400: hsl(253, 5%, 88%); /* borders for elements on white */
+  --color-gray-300: hsl(253, 5%, 93%); /* background for anything on the white e.g. table header */
+  --color-gray-200: hsl(253, 0%, 98%); /* body background grey */
+  --color-gray-100: hsl(253, 100%, 100%); /*  anything immediately on top of the bg */
+  --color-confirmation-300: hsl(122, 40%, 49%); /* foreground */
+  --color-confirmation-100: hsl(122, 100%, 95%); /* background */
+  --color-alert-300: hsl(4, 67%, 52%); /* foreground */
+  --color-alert-100: hsl(4, 100%, 98%); /* background */
+  --color-information-300: hsl(44, 100%, 28%); /* foreground */
+  --color-information-200: hsl(44, 100%, 48%);
+  --color-information-100: hsl(44, 100%, 96%); /* background */
+
+  --font-family: 'Roboto', sans-serif;
+  --font-family-serif: 'Noe Text', 'PT Serif', serif;
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-normal: 300;
+
+  --border-radius: 4px;
+
+  --space-size-xs: 0.5rem;
+  --space-size-sm: 1rem;
+  --space-size-md: 1.5rem;
+  --space-size-lg: 2rem;
+  --space-size-2xl: 3rem;
+}
+
+/** CSS Reset from https://andy-bell.co.uk/a-more-modern-css-reset/ **/
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-gray-200);
+  padding: var(--space-size-lg) 0;
+}
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-size-md);
+}
+
+main > * + * {
+  margin-block-start: var(--space-size-2xl);
+}
+
+input[type='text'] {
+  width: 100%;
+  height: 44px;
+  border-radius: var(--border-radius);
+  background-color: #ffffff;
+  border: 1px solid var(--color-gray-300);
+  text-align: left;
+  padding: 0 var(--space-size-sm);
+  box-sizing: border-box;
+  appearance: none;
+}
+
+input[type='text']:focus {
+  outline: none;
+  border-color: var(--color-gray-700);
+}
+
+input[type='text']:disabled {
+  opacity: 0.5;
+}
+
+input[type='text']::-ms-clear {
+  display: none;
+}
+
+button {
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  height: 46px;
+  font-size: 14px !important;
+  font-weight: var(--font-weight-medium);
+  line-height: 1em !important;
+  padding: 10.5px 15px;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  border: none;
+  outline: none;
+  vertical-align: middle;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  min-width: 100px;
+  background-color: var(--color-primary-400);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  color: var(--color-secondary-100);
+  flex-shrink: 0;
+}
+
+button:hover {
+  background-color: var(--color-primary-500);
+}
+button[disabled] {
+  cursor: not-allowed;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 1px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-size-sm);
+}
+
+ol {
+  padding: 0;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-size-xs);
+  margin: var(--space-size-sm) 0;
+  background-color: var(--color-gray-100);
+  border: 1px solid var(--color-gray-300);
+  padding: var(--space-size-md);
+  border-radius: var(--border-radius);
+}
+
+select {
+  height: 44px;
+  border-radius: var(--border-radius);
+  background-color: #ffffff;
+  border: 1px solid var(--color-gray-300);
+  text-align: left;
+  padding: 0 var(--space-size-sm);
+  box-sizing: border-box;
+}
+
+
